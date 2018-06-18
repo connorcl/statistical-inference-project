@@ -1,0 +1,22 @@
+---
+title: "Investigating the Effects of Vitamin C Supplements on Tooth Growth in Guniea Pigs"
+author: "Connor Claypool"
+date: "18 June 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+# Loading the Data and Exploratory Analysis
+
+# Comparing the Effects of Dose Levels For Each Supplement Type
+
+# Comparing the Effects of Supplement Types For Each Dose Level
+
+# Multiple Testing Corrections: Controlling the False Discovery Rate
+
+# Conclusion

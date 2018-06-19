@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Overview
 
-In this analysis we will use t-tests to compare the mean tooth length of groups of guinea pigs which have been given different doses of different types of vitamin C supplements, in order to draw conclusions about the relative effect of different dose levels and supplement types on tooth growth. We will assume that tooth length is independent between subjects, and that confounding variables have been properly addressed through random allocation of subjects to groups. Additionally, we assume that our sample sizes are large enough given the underlying distribution such that the various differences between sample means follow the t-distribution with the relevant degrees of freedom.
+In this analysis we will use t-tests to compare the mean tooth length of groups of guinea pigs which have been given different doses of different types of vitamin C supplements, in order to draw conclusions about the relative effect of different dose levels and supplement types on tooth growth. In generating our conclusions, we will assume that tooth length is independent between subjects, and that confounding variables have been properly addressed through random allocation of subjects to groups. Additionally, we assume that our sample sizes are large enough given the underlying distribution such that the various differences between sample means follow the t-distribution with the relevant degrees of freedom.
 
 # Loading the Data and Exploratory Analysis
 
@@ -26,7 +26,7 @@ str(ToothGrowth)
 We can see that the dataset contains 60 observations of 3 variables, which are tooth length, supplement type and dose. Next, we create some exploratory box plots to give a visual representation of the distributions of tooth lengths based on dose and supplement type.
 
 ```{r, echo=TRUE, fig.height=4}
-par(mfrow=c(1, 2))
+par(mfrow = c(1, 2))
 boxplot(len ~ dose, ToothGrowth)
 title(main = list("Tooth Length by Dose Level", cex=1), 
       xlab = "Dose Level", ylab = "Tooth Length")
@@ -46,7 +46,7 @@ len_dose_0.5 <- subset(ToothGrowth, dose == 0.5)$len
 len_dose_1 <- subset(ToothGrowth, dose == 1)$len
 
 test_dose_1 <- t.test(len_dose_1, len_dose_0.5, paired = FALSE,
-                          var.equal = FALSE, alternative = "greater")
+                      var.equal = FALSE, alternative = "greater")
 
 print(paste("p-value:", test_dose_1$p.value))
 print(paste("95% confidence interval:", paste(test_dose_1$conf.int[1], 
@@ -61,7 +61,7 @@ Similarly, we will test the hypothesis that a dose level of 2 is associated with
 len_dose_2 <- subset(ToothGrowth, dose == 2)$len
 
 test_dose_2 <- t.test(len_dose_2, len_dose_1, paired = FALSE,
-                        var.equal = FALSE, alternative = "greater")
+                      var.equal = FALSE, alternative = "greater")
 
 print(paste("p-value:", test_dose_2$p.value))
 print(paste("95% confidence interval:", paste(test_dose_2$conf.int[1],
@@ -86,4 +86,4 @@ print(paste("95% confidence interval:", paste(test_supp$conf.int[1],
                                               test_supp$conf.int[2])))
 ```
 
-At a significance level of 0.05, we fail to reject the null hypothesis, and see that with 95% confidence the true difference in mean tooth length by supplement type across dose levels is between -0.17 and 7.57. It appears that orange juice (OJ) may be associated with a slightly larger mean tooth length than ascorbic acid (VC), but this relationship is not quite statistically significant.
+At a significance level of 0.05, we fail to reject the null hypothesis, and see that with 95% confidence the true difference in mean tooth length by supplement type across dose levels is between -0.17 and 7.57. It appears that orange juice (OJ) may be associated with slightly greater tooth growth than ascorbic acid (VC), but this relationship is not quite statistically significant.

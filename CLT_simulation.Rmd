@@ -58,7 +58,7 @@ So the difference between the theoretical and observed values this time is about
 
 # Distribution of Sample Means vs Distribution of Observations
 
-While the observed mean and variance of our sample means are close to their theoretical values, this gives us no information about the exact shape of the distribution. Before we ascertain whether our sample means are normally distributed, however, it is worth visually comparing the underlying distribution of our observations, i.e. the exponential distribution, with the normal distribution having the same mean and variance, in order to appreciate their dissimilarity.
+While the observed mean and variance of our sample means are close to their theoretical values, this gives us no information about the exact shape of the distribution. Before we ascertain whether our sample means are normally distributed, however, it is worth visually comparing the underlying distribution of our observations with the normal distribution. The plot below compares the distribution of our observations, i.e. the exponential distribution with rate 0.2, with the normal distribution having the same mean and variance.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=3}
 library(ggplot2)
